@@ -1,622 +1,163 @@
-/* /* /* .body {}
-
-#root {
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
     margin: 0;
-    background-color: white
+    padding: 0;
 }
 
-.background {
+/* Estilo do Cabeçalho e Filtro */
+.header {
+    background-color: #007bff; /* Azul primário */
+    color: white;
+    padding: 20px 50px;
     display: flex;
-    width: 100%;
-    height: 100%;
-    background-color: #f8f8f9;
-}
-
-.ContainerClients {
-    display: flex;
-    max-width: 100%;
-    height: 100%;
-
-}
-
-.Menu {
-    width: 10%;
-    background-color: #F0F0F5;
-    display: flex;
-    justify-content: right;
-    flex-direction: column;
-    gap: 50px;
-}
-
-.MenuClient {
-    height: 100%;
-    background-color: #F0F0F5;
-}
-
-.MenuClient button {
-    width: 100%;
-    height: 74px;
-    color: #343447;
-    display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    background-color: #F0F0F5;
-
-
 }
 
-
-
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    padding-bottom: 50px;
-    color: black;
-    padding: 0 20px;
-
+.header h1 {
+    margin: 0;
+    font-size: 2em;
 }
 
-.div-column {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    width: 100%;
-    padding: 0 40px;
+.filter-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    margin-right: 10px;
 }
 
-
-
-.botaoCobranca {
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.filter-button {
+    padding: 10px 15px;
+    background-color: #28a745; /* Verde para ação */
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
 }
 
-.PageSettings {
+/* Container Principal do Calendário */
+.calendar-container {
+    padding: 20px 50px;
+}
+
+.current-view-title {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+/* Barra de Navegação */
+.navigation-bar {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.ContainerHotbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.PageSettings div {
-    display: flex;
-    flex-direction: row;
-}
-
-.FilterButton {
-    background-color: transparent;
-}
-
-.ContainerSearch {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.ContainerSearch input {
-    height: 40px;
-    width: 318px;
-
-
-}
-
-.ContainerSearch img {
-    height: 30px;
-    position: absolute;
-    right: 10px;
-}
-
-.search {
-    background-color: transparent;
-}
-
-.ContainerTable {
-    background-color: #FFFFFF;
-    border-radius: 30px;
-}
-
-.inputs {
-    gap: 300px;
-
-}
-
-.CircleName {
-    width: 50px;
-    height: 50px;
-    background-color: #DEDEE9;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 22px;
-
-}
-
-header div {
-    display: flex;
     align-items: center;
-    color: #0E8750;
+    margin-bottom: 20px;
 }
 
-header {
-    width: 100%;
-    height: 100px;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #0E8750;
-    margin-bottom: 30px;
-
-
-}
-
-.colunaInfo {
-    border-bottom: 1px solid #0E8750;
-
-}
-
-.mainC {
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-
-    flex-direction: column;
-}
-
-.listC {
-    /* display: flex;
-    align-items: center;
-    gap: 200px; */
-/* } */
-
-/* .listC {
- */    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-/* } */
-
-/* .listC td {}
-
-th,
-td {
-    padding: 5px 10px;
-    border-top: 1px solid black;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-} */
-
-
-
-/* .ListHead { */
-    /* display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 200px; */
-/* } */
-
-/* .fluxo {
-    height: 100%;
-    align-items: end;
-}
-
-.userMenu {
-    gap: 10px;
+.navigation-bar button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    margin: 0 10px;
+    border-radius: 5px;
     cursor: pointer;
-    position: relative;
+    transition: background-color 0.3s;
 }
 
-.modalUserMenu {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    gap: 10px;
-    position: absolute;
-    bottom: -30px;
-    z-index: 999;
+.navigation-bar button:hover {
+    background-color: #e9ecef;
+}
+
+.navigation-bar span {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Tabela de Agendamentos (O "Coração" do Calendário) */
+.schedule-table {
+    width: 100%;
+    border-collapse: separate; /* Permite espaçamento entre as células */
+    border-spacing: 5px; /* Espaçamento entre os blocos (células) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: white;
-    padding: 0 10px;
-    right: -69px;
+    border-radius: 8px;
+    overflow: hidden; /* Garante que os cantos arredondados funcionem bem */
 }
 
-.menuModal {
-    display: flex;
-    color: gray;
-    flex-direction: column;
+.schedule-table th, .schedule-table td {
+    padding: 15px 10px;
+    text-align: center;
+    border-radius: 5px; /* Arredondamento para o efeito de "bloco" */
+    font-size: 0.95em;
+    font-weight: bold;
 }
 
-.menuModal img {
-    width: 20px;
-    height: 20px;
-    background-color: #FFFFFF;
-
+/* Estilo do Cabeçalho da Tabela */
+.schedule-table th {
+    background-color: #007bff;
+    color: white;
+    border-bottom: 2px solid #0056b3;
 }
 
-.menuModal p {
-    line-height: 5px;
+/* Coluna de Horários (Primeira Coluna) */
+.schedule-table td:first-child {
+    background-color: #f8f9fa; /* Fundo mais claro para a hora */
+    color: #333;
+    font-weight: bold;
 }
 
-.imageSeta {
-    position: absolute;
-    top: -7px;
+/* Estilos de Status (Os Blocos de Agendamento) */
+
+/* Livre (Disponível) */
+.status-free {
+    background-color: #d4edda; /* Verde bem claro */
+    color: #155724;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-.NCliente {
-    width: 267px;
-    height: 53px;
-    border-radius: -2.5;
-    background-color: #DA0175;
+.status-free:hover {
+    background-color: #c3e6cb; /* Escurece um pouco no hover */
+    outline: 2px solid #28a745;
 }
 
-.ColorFont {
-    color: #DA0175;
-} */ 
-.mes{
-    display: flex;
-    justify-content: space-between;
-}
-.mes h1 {
-
+/* Reservado (Ocupado) */
+.status-reserved {
+    background-color: #f8d7da; /* Vermelho claro/rosa */
+    color: #721c24;
+    font-weight: 500;
 }
 
-$red : #ea5255;
-$primary : #23242a;
-.rva-week-row{
-  
-  border: solid 1px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  margin:2px;
-  width: 278px;
-  text-align:center;
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-.rva-week-row-hovered{
-  border: 1px solid white;
-  box-shadow: 0 11px 30px 0 rgba(0, 0, 0, 0.3);
-}
-.rva-week-day-name{
-  font-size: 18px;
-  color: $primary;
-  margin-bottom:5px;
-}
-.rva-week-day-date{
-  
-  opacity: 0.7;
-  font-family: Lora;
-  font-size: 18px;
-  color: $primary;
-}
-.rva-week-day-date-divider{
-  width: 70px;
-  height: 3px;
-  background-color: $red;
-  margin-top:20px;
-  margin-left:auto;
-  margin-right:auto;
-}
-.rva-week-day-info{
-  text-align: left;
-  margin-top:30px;
-}
-.rva-week-day-name{
-  font-family: Montserrat;
-  font-size: 16px;
-  color: $primary;
-}
-.rva-week-day-price{
-  opacity: 0.7;
-  font-family: Lora;
-  font-size: 15px;
-  margin-top: 5px;
-  margin-bottom:5px;
-  text-align: left;
-  color: $primary;
-}
-.rva-btn-reserve{
-  border: solid 1px black;
-  background: green;
-  border-radius:0;
-  font-family: Montserrat;
-  font-size: 15px;
-  color: blue;
-  width:100%;
-  line-height:25px;
-  text-decoration: none;
-  text-transform: uppercase;
-  &:focus,&:active {
-     outline: none !important;
-     box-shadow: none;
-  }
-  
+/* Bloqueado (Manutenção, etc.) */
+.status-blocked {
+    background-color: #fff3cd; /* Amarelo claro/ouro */
+    color: #856404;
+    font-style: italic;
 }
 
+/* Legenda */
+.legend {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
 
-.rva-btn-reserve1:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve1:active {
-  background-color: aqua;
-}
-.rva-btn-reserve1:visited {
-  background-color: red;
-}
-.rva-btn-reserve2:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve2:active {
-  background-color: aqua;
-}
-.rva-btn-reserve2:visited {
-  background-color: red;
-}
-.rva-btn-reserve3:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve3:active {
-  background-color: aqua;
-}
-.rva-btn-reserve3:visited {
-  background-color: red;
-}
-.rva-btn-reserve4:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve4:active {
-  background-color: aqua;
-}
-.rva-btn-reserve4:visited {
-  background-color: red;
-}
-.rva-btn-reserve5:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve5:active {
-  background-color: aqua;
-}
-.rva-btn-reserve5:visited {
-  background-color: red;
-}
-.rva-btn-reserve6:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve6:active {
-  background-color: aqua;
-}
-.rva-btn-reserve6:visited {
-  background-color: red;
-}
-.rva-btn-reserve7:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve7:active {
-  background-color: aqua;
-}
-.rva-btn-reserve7:visited {
-  background-color: red;
-}
-.rva-btn-reserve8:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve8:active {
-  background-color: aqua;
-}
-.rva-btn-reserve8:visited {
-  background-color: red;
-}
-.rva-btn-reserve9:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve9:active {
-  background-color: aqua;
-}
-.rva-btn-reserve9:visited {
-  background-color: red;
-}
-.rva-btn-reserve10:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve10:active {
-  background-color: aqua;
-}
-.rva-btn-reserve10:visited {
-  background-color: red;
-}
-.rva-btn-reserve11:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve11:active {
-  background-color: aqua;
-}
-.rva-btn-reserve11:visited {
-  background-color: red;
-}
-.rva-btn-reserve12:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve12:active {
-  background-color: aqua;
-}
-.rva-btn-reserve12:visited {
-  background-color: red;
-}
-.rva-btn-reserve13:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve13:active {
-  background-color: aqua;
-}
-.rva-btn-reserve13:visited {
-  background-color: red;
-}
-.rva-btn-reserve14:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve14:active {
-  background-color: aqua;
-}
-.rva-btn-reserve14:visited {
-  background-color: red;
-}
-.rva-btn-reserve15:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve15:active {
-  background-color: aqua;
-}
-.rva-btn-reserve15:visited {
-  background-color: red;
-}
-.rva-btn-reserve16:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve16:active {
-  background-color: aqua;
-}
-.rva-btn-reserve16:visited {
-  background-color: red;
-}
-.rva-btn-reserve17:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve17:active {
-  background-color: aqua;
-}
-.rva-btn-reserve17:visited {
-  background-color: red;
-}
-.rva-btn-reserve18:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve18:active {
-  background-color: aqua;
-}
-.rva-btn-reserve18:visited {
-  background-color: red;
-}
-.rva-btn-reserve19:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve19:active {
-  background-color: aqua;
-}
-.rva-btn-reserve19:visited {
-  background-color: red;
-}
-.rva-btn-reserve20:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve20:active {
-  background-color: aqua;
-}
-.rva-btn-reserve20:visited {
-  background-color: red;
-}
-.rva-btn-reserve21:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve21:active {
-  background-color: aqua;
-}
-.rva-btn-reserve21:visited {
-  background-color: red;
-}
-.rva-btn-reserve22:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve22:active {
-  background-color: aqua;
-}
-.rva-btn-reserve22:visited {
-  background-color: red;
-}
-.rva-btn-reserve23:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve23:active {
-  background-color: aqua;
-}
-.rva-btn-reserve23:visited {
-  background-color: red;
-}
-.rva-btn-reserve24:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve24:active {
-  background-color: aqua;
-}
-.rva-btn-reserve24:visited {
-  background-color: red;
-}
-.rva-btn-reserve25:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve25:active {
-  background-color: aqua;
-}
-.rva-btn-reserve25:visited {
-  background-color: red;
-}
-.rva-btn-reserve26:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve26:active {
-  background-color: aqua;
-}
-.rva-btn-reserve26:visited {
-  background-color: red;
-}
-.rva-btn-reserve27:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve27:active {
-  background-color: aqua;
-}
-.rva-btn-reserve27:visited {
-  background-color: red;
-}
-.rva-btn-reserve28:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve28:active {
-  background-color: aqua;
-}
-.rva-btn-reserve28:visited {
-  background-color: red;
-}
-.rva-btn-reserve29:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve29:active {
-  background-color: aqua;
-}
-.rva-btn-reserve29:visited {
-  background-color: red;
-}
-.rva-btn-reserve30:hover {
-  background-color: aqua;
-}
-.rva-btn-reserve30:active {
-  background-color: aqua;
-}
-.rva-btn-reserve30:visited {
-  background-color: red;
+.legend h4 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.status-legend {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
 }
