@@ -22,7 +22,7 @@ export const MainRoutes = () => {
         <Route element={<LoginPage />} path="/login" />
         <Route element={<ClientPage />} path="/Tabelas" />
         <Route element={<Charge />} path="/clientDetails" />
-        <Route element={<CobrancaPage />} path="/cobrancas" />
+        <Route element={<CobrancaPage />} path="/Reservado" />
         <Route element={<HomePage />} path="/Home" />
           
       </Route>

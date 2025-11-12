@@ -32,7 +32,6 @@ export const CobrancaList = () => {
     return null;
   }
 
-  const { handleClientModal, handleChargeModal, handleClientId } = mainContext;
   const { handleGetToken } = useAuth();
 
   useEffect(() => {
@@ -71,127 +70,59 @@ export const CobrancaList = () => {
     }
   };
   return (
-    <article className="ContainerClients">
-      <aside className="Menu">
-        <button onClick={() => navigate("/Home")} className="HomeButton">
-          <img src="./HomeIcon.svg" alt="" />
-          <span>Home</span>
-        </button>
-        <button onClick={() => navigate("/clients")} className="ClienteButton">
-          <img src="/ClientsIcon.svg" alt="" />
-          <span>Clientes</span>
-        </button>
-        <button
-          onClick={() => {
-            navigate("/cobrancas");
-          }}
-          className="CobrançasButton"
-        >
-          <img src="./cobIcon.svg" alt="" />
-          <span className="ColorFont">Cobranças</span>
-        </button>
-      </aside>
-      <div className="div-column">
-        <header className="headerClient">
-          <div className="fluxo">
-            <p>Clientes</p>
-          </div>
-          <div className="userMenu">
-            <div className="modalUserMenu">
-              <img className="imageSeta" src="./modalseta.svg" alt="" />
-              <div className="menuModal">
-                <img src="./edit.svg" alt="" />
-                <p>editar</p>
-              </div>
-              <div className="menuModal">
-                <img onClick={() => logout} src="./logout.svg" alt="" />
-                <p>sair</p>
-              </div>
-            </div>
-            <p className="CircleName">{getNome.nome.slice(0, 1)}</p>
-            <div>
-              <p>{getNome.nome}</p>
-              <img src="./seta.svg" alt="" />
-            </div>
-          </div>
-        </header>
-        <main className="main">
-          <div className="mainC">
-            <div className="PageSettings">
-              <div className="ContainerHotbar">
-                <img src="ClientsIconDark.svg" alt="" />
-                <h2>Clientes</h2>
-              </div>
-              <div>
-                <button
-                  className="NCliente"
-                  onClick={() => handleClientModal()}
-                >
-                  Adicionar Cliente
-                </button>
-                <button className="FilterButton">
-                  <img src="./Filter.svg" alt="" />
-                </button>
-                <div className="ContainerSearch">
-                  <input name="search" className="search"></input>
-                  <img src="./Search.svg" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
+    
+<body>
 
-          <div className="ContainerTable">
-            <table>
-              <thead>
-                <tr className="ListHead">
-                  <th>Nome</th>
-                  <th>CPF</th>
-                  <th>E-mail</th>
-                  <th>Telefone</th>
-                  <th>Status</th>
-                  <th>Nova Transação</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {cobrancaList.map((cobranca) => (
-                  <tr className="listC" /* key={cobranca.id_cob} */>
-                    <td
-                      onClick={() => {
-                        handleClientId(cobranca.id_cob);
-                        navigate("/cobrancaDetails");
-                      }}
-                    >
-                      {cobranca.nome}
-                    </td>
-                    <td>{/* {cobranca.id_cob} */}<h1>LAB. PLANTA 4.0</h1></td>
-                    <td>{/* {cobranca.valor} */}<h1>LAB. LOGÍSTICA</h1></td>
-                    <td>{/* {cobranca.data_venc} */}<h1>BIBLIOTECA</h1></td>
-                    <td>{/* {cobranca.status} */}<h1>FabLab</h1></td>
-                    <td>{/* {cobranca.descricao} */}<h1>LAB. PLANTA 4.0</h1></td>
-                    <td>
-                      <div className="tools">
-                        <div className="tool">
-                          <img src="./edit.svg" alt="" />
-                          <span>editar</span>
-                        </div>
-                        <div className="tool">
-                          <img
-                            onClick={() => handleDelete(cobranca.id_cob)}
-                            src="bin.svg"
-                            alt=""
-                          />
-                          <span>excluir</span>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </main>
-      </div>
-    </article>
+    <div className="card">
+        
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <div className="check-icon"></div>
+            <img src="../../../public/ConfirmedIcon.png" alt="IconConfirmationForm" />
+            <h1 className="title">Reserva Confirmada com Sucesso!</h1>
+        </div>
+        
+        
+        <div className="details-container">
+            
+            <div className="detail-item">
+                <div className="detail-icon">🧪</div> 
+                <div className="detail-label">Ambiente:</div>
+                <div className="detail-value">Laboratório 03</div>
+            </div>
+
+            <div className="detail-item">
+                <div className="detail-icon">📅</div> 
+                <div className="detail-label">Data:</div>
+                <div className="detail-value">16/10/2025 (Quinta-feira)</div>
+            </div>
+
+            <div className="detail-item">
+                <div className="detail-icon">🕒</div> 
+                <div className="detail-label">Horário:</div>
+                <div className="detail-value">18H - 22H</div>
+            </div>
+
+            <div className="detail-item">
+                <div className="detail-icon">👤</div> 
+                <div className="detail-label">Reservado:</div>
+                <div className="detail-value">Larissa Aguiar Moreira</div>
+            </div>
+
+        </div>
+
+        
+        <p className="instructions">
+            Sua reserva foi registrada no sistema AgendaSenai. Lembre-se de comparecer pontualmente e liberar o espaço após o uso.
+        </p>
+
+        
+        <div className="button-group">
+            <a href="#" className="btn btn-primary">Ver minhas reservas</a>
+            <a href="#" className="btn btn-secondary">Baixar comprovante (.pdf)</a>
+        </div>
+    </div>
+
+</body>
+
   );
 };

@@ -1,261 +1,152 @@
-.body {
-}
+ :root {
+            --primary-blue: #007bff; /* Azul vibrante */
+            --success-check: #007bff; /* Cor do check (o mesmo azul) */
+            --text-dark: #212529; /* Texto principal escuro */
+            --text-light: #6c757d; /* Texto de detalhes */
+            --background-light: #f8f9fa;
+            --font-main: 'Roboto', sans-serif;
+        }
 
-#root {
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  background-color: white;
-}
+        body {
+            font-family: var(--font-main);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 20px;
+            /* Centralização Total: Ocupa a altura total (100vh) e centraliza o conteúdo */
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            min-height: 100vh; /* Garante que o body ocupe a altura da viewport */
+        }
 
-.background {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
+        /* Cartão Principal de Confirmação */
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+        }
 
-.ContainerClients {
-  display: flex;
-  max-width: 100%;
-  height: 100%;
-}
+        /* NOVA CLASSE para o cabeçalho do check/título */
+        .header-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-.Menu {
-  width: 10%;
-  background-color: #f0f0f5;
-  display: flex;
-  justify-content: right;
-  flex-direction: column;
-  gap: 50px;
-}
+        /* Estilo do Ícone de Check Azul Grande */
+        
 
-.Menu button {
-  width: 100%;
-  height: 74px;
-  color: #343447;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #f0f0f5;
-}
+        /* Título Principal */
+        .title {
+            color: var(--text-dark);
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            text-align: left; /* Alinha o texto do título à esquerda, como na imagem */
+        }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  padding-bottom: 50px;
-  color: black;
-  padding: 0 20px;
-}
+        /* Contêiner dos Detalhes da Reserva */
+        .details-container {
+            text-align: left;
+            margin-bottom: 30px;
+        }
 
-.div-column {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 40px;
-}
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
 
-.botaoCobranca {
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
+        .detail-icon {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            color: var(--primary-blue);
+            width: 24px;
+            text-align: center;
+        }
 
-.PageSettings {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
+        .detail-label {
+            font-weight: 500;
+            color: var(--text-dark);
+            flex-shrink: 0; /* Não permite que o label diminua */
+            width: 100px; /* Largura fixa para alinhamento */
+        }
 
-.ContainerHotbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+        .detail-value {
+            font-weight: 400;
+            color: var(--text-dark);
+        }
 
-.PageSettings div {
-  display: flex;
-  flex-direction: row;
-}
+        /* Texto de Instruções */
+        .instructions {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            text-align: left;
+        }
 
-.FilterButton {
-  background-color: transparent;
-}
+        /* Botões */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-.ContainerSearch {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+        .btn {
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+            font-size: 1rem;
+        }
 
-.ContainerSearch input {
-  height: 40px;
-  width: 318px;
-}
+        /* Botão Principal (Sólido Azul) */
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
 
-.ContainerSearch img {
-  height: 30px;
-  position: absolute;
-  right: 10px;
-}
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
 
-.search {
-  background-color: transparent;
-}
+        /* Botão Secundário (Outline Azul) */
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
 
-.ContainerTable {
-  /* overflow: auto;
-    max-height: 1300px;
-    display: flex;
-    align-items: center;
-    max-width: 1300px;
-    padding-top: 40px; */
-}
+        .btn-secondary:hover {
+            background-color: #e9f5ff;
+        }
 
-.inputs {
-  gap: 300px;
-}
+        /* Responsividade para telas menores */
+        @media (max-width: 600px) {
+            .card {
+                margin: 20px;
+                padding: 30px 20px;
+                align-items: center;
+            }
 
-.CircleName {
-  width: 50px;
-  height: 50px;
-  background-color: #dedee9;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-}
+            .title {
+                font-size: 1.8rem;
+                margin-top: 15px;
+            }
 
-header div {
-  display: flex;
-  align-items: center;
-  color: #0e8750;
-}
-
-header {
-  width: 96%;
-  height: 100px;
-  padding: 0 20px;
-  display: flex;
-  border-bottom: 1px solid #0e8750;
-  margin-bottom: 30px;
-}
-
-.colunaInfo {
-  border-bottom: 1px solid #0e8750;
-}
-
-.mainC {
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-
-  flex-direction: column;
-}
-
-.listC {
-  /* display: flex;
-    align-items: center;
-    gap: 200px; */
-}
-
-.listC {
-  /* display: flex;
-    align-items: center;
-    justify-content: center; */
-}
-
-.listC td {
-}
-
-th,
-td {
-  padding: 5px 10px;
-  border-top: 1px solid black;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.ListHead {
-  /* display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 200px; */
-}
-
-.fluxo {
-  height: 100%;
-  align-items: end;
-}
-
-.userMenu {
-  gap: 10px;
-  cursor: pointer;
-  position: relative;
-}
-
-.modalUserMenu {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  gap: 10px;
-  position: absolute;
-  bottom: -30px;
-  z-index: 999;
-  background-color: white;
-  padding: 0 10px;
-  right: -69px;
-}
-
-.menuModal {
-  display: flex;
-  color: gray;
-  flex-direction: column;
-}
-
-.menuModal img {
-  width: 20px;
-  height: 20px;
-  background-color: #ffffff;
-}
-
-.menuModal p {
-  line-height: 5px;
-}
-
-.imageSeta {
-  position: absolute;
-  top: -7px;
-}
-
-.NCliente {
-  width: 267px;
-  height: 53px;
-  border-radius: -2.5;
-  background-color: #da0175;
-}
-
-.tools {
-  display: flex;
-  gap: 2px;
-}
-
-.tool {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
-.ColorFont {
-  color: #da0175;
-}
+            .detail-label {
+                width: 80px; /* Reduz a largura do label em mobile */
+            }
+        }
