@@ -1,120 +1,183 @@
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-}
+:root {
+            --senai-blue: #004e98;
+            --light-gray: #f4f4f4;
+            --gray-text: #6b7280;
+        }
 
-.resumos {
-    display: flex;
-    align-items: center;
-    gap: 180px;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-gray);
+            display: flex;
+            height: 100vh; 
+            margin: 0;
+        }
 
-.tablesC {
-    display: flex;
-    gap: 180px
-}
+        .browser-container {
+            width: 100%;
+            height: 100%; 
+            background-color: white;
+            overflow: auto; 
+        }
 
-.CobrancasResumo {
-    display: flex;
-    align-items: center;
-    gap: 300px;
+        .browser-header {
+            display: none; 
+        }
 
-}
 
-.CobrancasPagas {
-    width: 360px;
-    height: 111px;
-    border-radius: 30px;
-    background-color: #eef6f6;
-    padding-right: 40px;
-    padding-left: 40px;
-    padding-top: 23px;
-    padding-bottom: 23px;
-}
+        .main-content {
+            padding: 2rem; 
+        }
+        
+        @media (min-width: 768px) {
+            .main-content {
+                padding: 3rem; 
+            }
+        }
 
-.CobrancasVencidas {
-    width: 360px;
-    height: 111px;
-    border-radius: 30px;
-    background-color: #ffefef;
-    padding-right: 40px;
-    padding-left: 40px;
-    padding-top: 23px;
-    padding-bottom: 23px;
-}
+        .logo-container {
+            text-align: right;
+            margin-bottom: 1.5rem; 
+        }
 
-.CobrancasPrevistas {
-    width: 360px;
-    height: 111px;
-    border-radius: 30px;
-    background-color: #fcf6dc;
-    padding-right: 40px;
-    padding-left: 40px;
-    padding-top: 23px;
-    padding-bottom: 23px;
-}
+        .logo-firjan {
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            color: var(--senai-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em; 
+            line-height: 1; 
+            display: block;
+        }
 
-.TCobrancasPagas,
-.TCobrancasVencidas,
-.TCobrancasPrevistas {
-    width: 360px;
-    height: 291px;
-}
+        .logo-senai {
+            font-size: 2rem; 
+            font-weight: 900; 
+            color: var(--senai-blue);
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+        
+        .content-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 2.5rem; 
+        }
 
-.tituloTotal {
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    padding-right: 30px;
-}
+        .content-header h1 {
+            font-size: 2.25rem; 
+            font-weight: 900; 
+            color: var(--senai-blue);
+            margin-bottom: 1rem; 
+        }
+        
+        
+        @media (min-width: 768px) {
+            .content-header {
+                flex-direction: row;
+                align-items: center;
+            }
+            .content-header h1 {
+                font-size: 3rem; 
+                margin-bottom: 0; 
+            }
+        }
 
-.QPA {
-    width: 52px;
-    height: 20px;
-    border-radius: 8px;
-    background-color: #eef6f6;
-    color: #52bbc0;
-}
+        .search-bar {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.5rem;
+            border: 2px solid rgba(0, 78, 152, 0.3); 
+            border-radius: 0.5rem; 
+            background-color: white;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
+        }
+        
+        @media (min-width: 768px) {
+            .search-bar {
+                width: 33.333333%; 
+            }
+        }
 
-.QVE {
-    width: 52px;
-    height: 20px;
-    border-radius: 8px;
-    background-color: #ffefef;
-    color: #b85f5f;
-}
+        .search-bar input {
+            flex-grow: 1;
+            margin-left: 0.5rem;
+            padding: 0.25rem;
+            color: #1f2937; 
+            font-size: 0.875rem; 
+            outline: none;
+            border: none;
+        }
+        .search-bar input::placeholder {
+            color: #9ca3af; 
+        }
+        
+        
+        .environments-grid {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 1.5rem; 
+        }
+        
+        
+        @media (min-width: 640px) {
+            .environments-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
 
-.QPR {
-    width: 52px;
-    height: 20px;
-    border-radius: 8px;
-    background-color: #fcf6dc;
-    color: #c5a605;
-}
+        @media (min-width: 1024px) {
+            .environments-grid {
+                grid-template-columns: repeat(3, 1fr); 
+            }
+        }
 
-.CEM {
-    width: 52px;
-    height: 20px;
-    border-radius: 8px;
-    background-color: #eef6f6;
-    color: #52bbc0;
-}
+        .environment-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border: 2px solid rgba(0, 78, 152, 0.3);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); 
+            cursor: pointer;
+            transition: all 0.2s ease-in-out; 
+            text-decoration: none; 
+        }
 
-.CIN {
-    width: 52px;
-    height: 20px;
-    border-radius: 8px;
-    background-color: #ffefef;
-    color: #b85f5f;
-}
+        .environment-card:hover {
+            background-color: rgba(0, 78, 152, 0.05); 
+        }
 
-.clientsTables {
-    display: flex;
-    gap: 260.5px;
-}
+        .card-title {
+            font-size: 1.125rem; 
+            font-weight: 600; 
+            color: var(--senai-blue);
+        }
 
-/* .modalUserMenu {
-    visibility: hidden;
+        .card-details {
+            font-size: 0.75rem; 
+            color: #6b7280; 
+            margin-top: 0.25rem; 
+        }
 
-} */
+        .card-icon svg {
+            stroke: var(--senai-blue);
+            stroke-width: 2.5;
+        }
+        
+        
+        .footer-instruction {
+            text-align: center;
+            margin-top: 3rem; 
+            margin-bottom: 1rem; 
+        }
+        
+        .footer-instruction p {
+            font-size: 0.875rem; 
+            font-weight: 500; 
+            color: #4b5563; 
+        }

@@ -1,11 +1,11 @@
-import { Register } from "../../components/RegisterForm/RegisterForm"
+import SelecaoData from "../../components/RegisterForm/RegisterForm";
 
-export default function RegisterPage() {
+export default function ReservaHorario() {
 
     return (
         <div className="background">
 
-            <Register />
+            <SelecaoData />
 
         </div>
 

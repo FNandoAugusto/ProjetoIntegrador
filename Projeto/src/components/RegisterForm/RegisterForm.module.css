@@ -1,85 +1,311 @@
-.body {}
 
-#root {
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-}
+            :root {
+                --senai-blue: #004e98;
+                --light-gray: #f4f4f4;
+                --dark-text: #1f2937;
+                --reserved-bg: #e5e7eb;
+                --reserved-text: #4b5563;
+                --border-color: #d1d5db;
+            }
+            
+            .container {
+                font-family: 'Inter', sans-serif;
+                background-color: var(--light-gray);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                padding: 1rem;
+            }
 
-.background {
-    /* display: flex; */
-    width: 100%;
-    height: 100%;
-}
+            .mainCard {
+                width: 100%;
+                max-width: 1280px; 
+                background-color: #ffffff;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                border-radius: 0.75rem;
+                overflow: hidden;
+                border: 1px solid var(--border-color);
+            }
 
-.ContainerRegister {
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
+            .headerSection {
+                padding: 2rem 3rem;
+            }
 
-.LogoSenai {
- display: flex;  
-    justify-content: center;
- 
-}
+            .browserBar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.5rem;
+                background-color: #f3f4f6;
+                border-bottom: 1px solid var(--border-color);
+            }
 
+            .browserControls {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: #6b7280;
+            }
 
+            .controlDot {
+                width: 0.75rem;
+                height: 0.75rem;
+                border-radius: 50%;
+            }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    background-color: #F8F8F9;
-    padding-bottom: 50px;
-}
+            .urlBar {
+                flex-grow: 1;
+                display: flex;
+                justify-content: center;
+                margin: 0 1rem;
+            }
 
+            .urlInput {
+                width: 66.666%;
+                max-width: 50%; 
+                background-color: #ffffff;
+                border: 1px solid var(--border-color);
+                border-radius: 9999px;
+                padding: 0.25rem 1rem;
+                font-size: 0.75rem;
+                color: #6b7280;
+                box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-.FormC {
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    height: 100%;
-}
+            .logoSection {
+                text-align: right;
+                margin-bottom: 1.5rem;
+            }
 
-.FormC img {}
+            .logoFirjan {
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: var(--senai-blue);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                line-height: 1;
+                display: block;
+            }
 
-.inputs {
-    gap: 300px;
+            .logoSenai {
+                font-size: 2rem;
+                font-weight: 900;
+                color: var(--senai-blue);
+                text-transform: uppercase;
+                line-height: 1;
+                letter-spacing: -2px;
+            }
 
-}
+            .detailsHeader {
+                margin-bottom: 2rem;
+            }
 
-.input1 {
-    width: 368px;
-    height: 44px;
-    border-radius: 8px;
-    border-color: black;
-    background-color: white;
-    color: black;
-}
+            .detailsHeader h1 {
+                font-size: 2.25rem;
+                font-weight: 800;
+                color: var(--senai-blue);
+                margin-bottom: 0.5rem;
+            }
 
-.input2 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 368px;
-    height: 44px;
-    border-radius: 8px;
-    border-color: black;
-    background-color: white;
-    color: black;
-}
+            .detailsHeader p {
+                font-size: 0.875rem;
+                color: #4b5563;
+                font-weight: 500;
+                margin-top: 0.25rem;
+            }
 
-.submitButton {
-    width: 160px;
-    height: 33px;
-    border-radius: 10px;
-    background-color: #DA0175;
-}
+            .highlight {
+                font-weight: 600;
+            }
 
-a {
-    color: #DA0175;
-}
+            .count {
+                font-weight: 700;
+                color: var(--senai-blue);
+            }
+
+            .timeSlotContainer {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: 1rem;
+                position: relative;
+            }
+
+            @media (min-width: 768px) {
+                .timeSlotContainer {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+            }
+
+            .dashedDivider {
+                display: none;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                border-left: 1px dashed var(--border-color);
+                height: 100%;
+                pointer-events: none;
+            }
+            @media (min-width: 768px) {
+                .dashedDivider {
+                    display: block;
+                }
+                #divider-tarde { left: 33.333%; }
+                #divider-noite { left: 66.666%; }
+            }
+
+            .shiftColumn {
+                padding: 1rem 0;
+            }
+
+            .shiftColumn h2 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 1.5rem;
+                color: var(--senai-blue);
+                text-align: center;
+            }
+            @media (min-width: 768px) {
+                .shiftColumn h2 {
+                    text-align: left;
+                }
+            }
+
+            .slot {
+                padding: 0.75rem 1rem;
+                border-radius: 0.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-weight: 500;
+                transition: all 0.15s ease-in-out;
+                margin-bottom: 0.75rem;
+                cursor: pointer;
+                user-select: none;
+                border: 1px solid #9ca3af; 
+            }
+
+            .statusIndicator {
+                width: 0.75rem;
+                height: 0.75rem;
+                border-radius: 50%;
+            }
+
+            .reserved {
+                background-color: var(--reserved-bg);
+                color: var(--reserved-text);
+                border: 1px solid var(--border-color);
+                cursor: not-allowed;
+                pointer-events: none;
+                opacity: 0.8;
+            }
+            .reserved .statusIndicator {
+                background-color: #fca5a5; 
+            }
+
+            .available {
+                background-color: #ffffff;
+                color: var(--dark-text);
+            }
+            .available .statusIndicator {
+                background-color: #4ade80; 
+            }
+            .available:hover {
+                background-color: #eff6ff; 
+                border-color: var(--senai-blue);
+            }
+
+            .selected {
+                background-color: var(--senai-blue);
+                color: white;
+                border: 1px solid var(--senai-blue);
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.15);
+                transform: translateY(-1px);
+                cursor: pointer;
+            }
+            .selected .statusIndicator {
+                background-color: #fcd34d; 
+            }
+
+            .reserveButtonContainer {
+                display: flex;
+                justify-content: center;
+                margin-top: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .reserveButton {
+                padding: 0.75rem 2.5rem;
+                background-color: var(--senai-blue);
+                color: white;
+                font-weight: 600;
+                border-radius: 0.5rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                transition: all 0.2s ease;
+                border: none;
+                cursor: pointer;
+            }
+
+            .reserveButton:not(:disabled):hover {
+                background-color: #003a6e; 
+                box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+            }
+
+            .reserveButton:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+            .modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(17, 24, 39, 0.75);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 50;
+            }
+
+            .modalContentBox {
+                background-color: white;
+                padding: 1.5rem;
+                border-radius: 0.75rem;
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+                max-width: 24rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .modalTitle {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--senai-blue);
+                margin-bottom: 0.75rem;
+            }
+
+            .modalContent {
+                color: #4b5563;
+                margin-bottom: 1.5rem;
+            }
+
+            .modalCloseButton {
+                padding: 0.5rem 1.5rem;
+                background-color: var(--senai-blue);
+                color: white;
+                font-weight: 600;
+                border-radius: 0.5rem;
+                border: none;
+                cursor: pointer;
+            }
+
+            .modalCloseButton:hover {
+                background-color: #003a6e;
+            }
+            

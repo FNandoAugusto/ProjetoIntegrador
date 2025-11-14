@@ -80,7 +80,6 @@ export const HomePage = () => {
   if (!mainContext) {
     return null;
   }
-  const { handleClientModal, handleChargeModal, handleClientId } = mainContext;
 
   const { handleGetToken } = useAuth();
 
@@ -114,250 +113,160 @@ export const HomePage = () => {
 
   // const handleCloseMenu = () => {
   //     if (menuRef.current) {
-  //         menuRef.current.className = menuRef.current.className = "modalUserMenu" ? "" : "modalUserMenu"
+  //         menuRef.current.classNameName = menuRef.current.classNameName = "modalUserMenu" ? "" : "modalUserMenu"
   //     }
   // }
 
   return (
-    <article className="ContainerClients">
-      <aside className="Menu">
-        <button onClick={() => navigate("/Home")} className="HomeButton">
-          <img src="./HomeLightIcon.svg" alt="" />
-          <span className="ColorFont">Home</span>
-        </button>
-        <button onClick={() => navigate("/clients")} className="ClienteButton">
-          <img src="/ClientsIcon.svg" alt="" />
-          <span>Clientes</span>
-        </button>
-        <button
-          onClick={() => {
-            navigate("/cobrancas");
-          }}
-          className="CobrançasButton"
-        >
-          <img src="./CobrancasIcon.svg" alt="" />
-          <span>Cobranças</span>
-        </button>
-      </aside>
-      <div className="div-column">
-        <header className="headerClient">
-          <div className="fluxo">
-            <p>Clientes</p>
-          </div>
-          <div className="userMenu">
-            <div className="modalUserMenu">
-              {/* ref={menuRef} onClick={() => handleCloseMenu()} */}
-              <img className="imageSeta" src="./modalseta.svg" alt="" />
-              <div className="menuModal">
-                <img src="./edit.svg" alt="" />
-                <p>editar</p>
-              </div>
-              <div className="menuModal">
-                <img src="./logout.svg" alt="" />
-                <p>sair</p>
-              </div>
+    <div>
+     <div className="browser-container">
+        
+        <div className="main-content">
+            <div className="logo-container">
+                <span className="logo-firjan">Firjan</span>
+                <span className="logo-senai">SENAI</span>
             </div>
-            <p className="CircleName">{getNome.nome.slice(0, 1)}</p>
-            <div>
-              <p>{getNome.nome}</p>
-              <img src="./seta.svg" alt="" />
-            </div>
-          </div>
-        </header>
-        <main className="main">
-          <section className="resumos">
-            <div className="CobrancasPagas">
-              <h3>CobrancasPagas</h3>
-              <h1>{cobrancasPagasList.total.toLocaleString("pt-BR")}</h1>
-            </div>
-            <div className="CobrancasVencidas">
-              <h3>CobrancasVencidas</h3>
-              <h1>{cobrancasVencidasList.total.toLocaleString("pt-BR")}</h1>
-            </div>
-            <div className="CobrancasPrevistas">
-              <h3>CobrancasPrevistas</h3>
-              <h1>{cobrancasPrevistasList.total.toLocaleString("pt-BR")}</h1>
-            </div>
-          </section>
 
-          <section className="tablesC">
-            <div className="TCobrancasPagas">
-              <div className="tituloTotal">
-                <h4>Cobranças Pagas</h4>{" "}
-                <h4 className="QPA">{cobrancasPagasList.quantidade}</h4>
-              </div>
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Cliente</th>
-                      <th>ID da Cob.</th>
-                      <th>Valor</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {cobrancasPagasList.charges.slice(0, 4).map((cobranca) => (
-                      <tr className="listC" key={cobranca.id_cob}>
-                        <td
-                          onClick={() => {
-                            handleClientId(cobranca.id_cob);
-                            navigate("/cobrancaDetails");
-                          }}
-                        >
-                          {cobranca.nome}
-                        </td>
-                        <td>{cobranca.id_cob}</td>
-                        <td>{cobranca.valor}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div className="TCobrancasVencidas">
-              <div className="tituloTotal">
-                <h4>Cobranças Pagas</h4>
-                <h4 className="QVE">{cobrancasVencidasList.quantidade}</h4>
-              </div>
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Cliente</th>
-                      <th>ID da Cob.</th>
-                      <th>Valor</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {cobrancasVencidasList.charges
-                      .slice(0, 4)
-                      .map((cobranca) => (
-                        <tr className="listC" key={cobranca.id_cob}>
-                          <td
-                            onClick={() => {
-                              handleClientId(cobranca.id_cob);
-                              navigate("/cobrancaDetails");
-                            }}
-                          >
-                            {cobranca.nome}
-                          </td>
-                          <td>{cobranca.id_cob}</td>
-                          <td>{cobranca.valor}</td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div className="TCobrancasPrevistas">
-              <div className="tituloTotal">
-                <h4>Cobranças Pagas</h4>
-                <h4 className="QPR">{cobrancasPrevistasList.quantidade}</h4>
-              </div>
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Cliente</th>
-                      <th>ID da Cob.</th>
-                      <th>Valor</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {cobrancasPrevistasList.charges
-                      .slice(0, 4)
-                      .map((cobranca) => (
-                        <tr className="listC" key={cobranca.id_cob}>
-                          <td
-                            onClick={() => {
-                              handleClientId(cobranca.id_cob);
-                              navigate("/cobrancaDetails");
-                            }}
-                          >
-                            {cobranca.nome}
-                          </td>
-                          <td>{cobranca.id_cob}</td>
-                          <td>{cobranca.valor}</td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </section>
-          <section className="clientsTables">
-            <div className="clientesInadimplentes">
-              <div className="tituloTotal">
-                <h4>Clientes Inadimplentes</h4>
-                <h4 className="CIN">{clientesInadimplentesList.quantidade}</h4>
-              </div>
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Cliente</th>
-                      <th>ID do Clie.</th>
-                      <th>CPF</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {clientesInadimplentesList.clientes
-                      .slice(0, 4)
-                      .map((client) => (
-                        <tr className="listC" key={client.id}>
-                          <td
-                            onClick={() => {
-                              handleClientId(client.id);
-                              navigate("/cobrancaDetails");
-                            }}
-                          >
-                            {client.nome}
-                          </td>
-                          <td>{client.id}</td>
-                          <td>{client.cpf}</td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div className="clientesEmDia">
-              <div className="tituloTotal">
-                <h4>Clientes em Dia</h4>
-                <h4 className="CEM">{clientesEmdiaList.quantidade}</h4>
-              </div>
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Cliente</th>
-                      <th>ID do Clie.</th>
-                      <th>CPF</th>
-                    </tr>
-                  </thead>
+            <div className="content-header">
+                <h1>Ambientes</h1>
 
-                  <tbody>
-                    {clientesEmdiaList.clientes.slice(0, 4).map((client) => (
-                      <tr className="listC" key={client.id}>
-                        <td
-                          onClick={() => {
-                            handleClientId(client.id);
-                            navigate("/cobrancaDetails");
-                          }}
-                        >
-                          {client.nome}
-                        </td>
-                        <td>{client.id}</td>
-                        <td>{client.cpf}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                <div className="search-bar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style={{color: '#9ca3af'}}><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="text" placeholder="Procurar Sala Desejada..." />
+                </div>
             </div>
-          </section>
-        </main>
-      </div>
-    </article>
+
+            <div className="environments-grid">
+                
+                <a href="#lab-planta-4-0" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Lab. Planta 4.0</h3>
+                        <p className="card-details">Capacidade 10 / 5 computadores</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+                
+                <a href="#lab-automacao" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Lab. Automação</h3>
+                        <p className="card-details">Capacidade 20 / 10 computadores</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+                
+                <a href="#sala-05" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Sala 05</h3>
+                        <p className="card-details">Capacidade 40</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+
+                <a onClick={() => {navigate("/calendario")}} href="#lab-logistica" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Lab. Logística</h3>
+                        <p className="card-details">Capacidade 35 / 10 computadores</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+
+                <a href="#lab-ti-01" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Lab. TI 01</h3>
+                        <p className="card-details">Capacidade 25 / 25 computadores</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+
+                <a href="#sala-11" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Sala 11</h3>
+                        <p className="card-details">Capacidade 43</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+
+                <a href="#biblioteca" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Biblioteca</h3>
+                        <p className="card-details">Capacidade 20 / 09 computadores</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+
+                <a href="#lab-ti-02" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Lab. TI 02</h3>
+                        <p className="card-details">Capacidade 20 / 20 computadores</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+                
+                <a href="#sala-17" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Sala 17</h3>
+                        <p className="card-details">Capacidade 22</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+
+                <a href="#fablab" className="environment-card">
+                    <div>
+                        <h3 className="card-title">FabLab</h3>
+                        <p className="card-details">Capacidade 20 / 11 computadores</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+
+                <a href="#lab-ti-03" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Lab. TI 03</h3>
+                        <p className="card-details">Capacidade 20 / 20 computadores</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+
+                <a href="#sala-20" className="environment-card">
+                    <div>
+                        <h3 className="card-title">Sala 20</h3>
+                        <p className="card-details">Capacidade 35</p>
+                    </div>
+                    <span className="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                    </span>
+                </a>
+            </div>
+
+            <div className="footer-instruction">
+                <p>
+                    Clique em um ambiente para ver o calendário de reservas.
+                </p>
+            </div>
+
+        </div>
+    </div>
+    </div>
   );
 };

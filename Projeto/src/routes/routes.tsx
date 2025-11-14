@@ -11,30 +11,23 @@ import Client from "../pages/HomePages/ClientPage";
 import { HomePage } from "../components/HomePagesForm/HomePage";
 import Charge from "../pages/HomePages/ClientCobrancaPage";
 import { ClientPage } from "../components/HomePagesForm/ClientPageForm";
+import ReservaHorario from "../pages/RegisterPage/RegisterPage";
 
 export const MainRoutes = () => {
   return (
     <Routes>
       <Route /* element={<PublicRoutes redirectTo="/clients" />} */>
-        <Route element={<RegisterPage />} path="/" />
-        <Route element={<RegisterPage2 />} path="/register2" />
+        
+        <Route element={<RegisterPage2 />} path="/calendario" />
         <Route element={<RegisterPage3 />} path="/register3" />
-        <Route element={<LoginPage />} path="/login" />
-        <Route element={<ClientPage />} path="/Tabelas" />
-        <Route element={<Charge />} path="/clientDetails" />
+        <Route element={<LoginPage />} path="/" />
+         <Route element={<HomePage />} path="/ambientes" />
+         <Route element={<ReservaHorario />} path="/horariosDisponíveis" />
         <Route element={<CobrancaPage />} path="/Reservado" />
-        <Route element={<HomePage />} path="/Home" />
+       
           
       </Route>
 
-      {/* <Route element={<Layout />}> */}
-      {/*   <Route element={<ProtectedRoutes redirectTo="/" />}> */}
-          {/* <Route element={<LoginPage/>} path="/clients" />
-          <Route element={<Charge />} path="/clientDetails" />
-          <Route element={<CobrancaPage />} path="/cobrancas" />
-          <Route element={<HomePage />} path="/Home" /> */}
-        {/* </Route> */}
-     {/*  </Route> */}
     </Routes>
   );
 };

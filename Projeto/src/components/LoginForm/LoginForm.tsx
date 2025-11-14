@@ -49,7 +49,7 @@ export const Login = () => {
                                     <input {...register("senha", { required: true })} className="input2" placeholder="Senha" />
                                 </div>
                             </div>
-                            <button className="submitbutton"type="submit" onClick={() =>{navigate("/Tabelas")}}>Continuar</button>
+                            <button className="submitbutton"type="submit" onClick={() =>{navigate("/ambientes")}}>Continuar</button>
 
 
 
