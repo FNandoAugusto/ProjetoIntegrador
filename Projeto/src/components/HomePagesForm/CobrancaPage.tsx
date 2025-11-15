@@ -87,19 +87,19 @@ export const CobrancaList = () => {
             <div className="detail-item">
                 <div className="detail-icon">🧪</div> 
                 <div className="detail-label">Ambiente:</div>
-                <div className="detail-value">Laboratório 03</div>
+                <div className="detail-value">Lab. Logística</div>
             </div>
 
             <div className="detail-item">
                 <div className="detail-icon">📅</div> 
                 <div className="detail-label">Data:</div>
-                <div className="detail-value">16/10/2025 (Quinta-feira)</div>
+                <div className="detail-value">19/11/2025 (Quinta-feira)</div>
             </div>
 
             <div className="detail-item">
                 <div className="detail-icon">🕒</div> 
                 <div className="detail-label">Horário:</div>
-                <div className="detail-value">18H - 22H</div>
+                <div className="detail-value">18H - 19H</div>
             </div>
 
             <div className="detail-item">

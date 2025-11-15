@@ -65,7 +65,7 @@ const App: React.FC = () => {
   // Função específica para o dia 19 que navega para "Reservado"
   const handleDay19Click = () => {
     console.log('Navegando para a tela Reservado...');
-    navigate("/Reservado");
+    navigate("/horariosDisponíveis");
   };
 
   for (let i = 0; i < totalCells; i++) {
@@ -321,7 +321,7 @@ const App: React.FC = () => {
                         <line x1="8" y1="2" x2="8" y2="6"></line>
                         <line x1="3" y1="10" x2="21" y2="10"></line>
                     </svg>
-                    <h2>Laboratório 03</h2>
+                    <h2>Lab. Logística</h2>
                 </div>
 
                 <div className="content">

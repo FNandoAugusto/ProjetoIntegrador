@@ -1,311 +1,142 @@
+/* Importação de fonte básica (opcional) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-            :root {
-                --senai-blue: #004e98;
-                --light-gray: #f4f4f4;
-                --dark-text: #1f2937;
-                --reserved-bg: #e5e7eb;
-                --reserved-text: #4b5563;
-                --border-color: #d1d5db;
-            }
-            
-            .container {
-                font-family: 'Inter', sans-serif;
-                background-color: var(--light-gray);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-height: 100vh;
-                padding: 1rem;
-            }
+/* --- Estilos Gerais e Layout --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-            .mainCard {
-                width: 100%;
-                max-width: 1280px; 
-                background-color: #ffffff;
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-                border-radius: 0.75rem;
-                overflow: hidden;
-                border: 1px solid var(--border-color);
-            }
+.main-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+}
 
-            .headerSection {
-                padding: 2rem 3rem;
-            }
+h1 {
+    color: #1a237e;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
 
-            .browserBar {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 0.5rem;
-                background-color: #f3f4f6;
-                border-bottom: 1px solid var(--border-color);
-            }
+p {
+    color: #333;
+    font-size: 0.9em;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
 
-            .browserControls {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                color: #6b7280;
-            }
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
 
-            .controlDot {
-                width: 0.75rem;
-                height: 0.75rem;
-                border-radius: 50%;
-            }
+.horarios-container {
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
 
-            .urlBar {
-                flex-grow: 1;
-                display: flex;
-                justify-content: center;
-                margin: 0 1rem;
-            }
+.coluna-manha, .coluna-tarde, .coluna-noite {
+    flex: 1; 
+    padding: 0 15px;
+    border-right: 2px dashed #ccc;
+}
 
-            .urlInput {
-                width: 66.666%;
-                max-width: 50%; 
-                background-color: #ffffff;
-                border: 1px solid var(--border-color);
-                border-radius: 9999px;
-                padding: 0.25rem 1rem;
-                font-size: 0.75rem;
-                color: #6b7280;
-                box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+.coluna-noite {
+    border-right: none;
+}
 
-            .logoSection {
-                text-align: right;
-                margin-bottom: 1.5rem;
-            }
+h2 {
+    color: #1a237e;
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
 
-            .logoFirjan {
-                font-size: 0.75rem;
-                font-weight: 700;
-                color: var(--senai-blue);
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
-                line-height: 1;
-                display: block;
-            }
+ul {
+    list-style: none;
+    padding: 0;
+}
 
-            .logoSenai {
-                font-size: 2rem;
-                font-weight: 900;
-                color: var(--senai-blue);
-                text-transform: uppercase;
-                line-height: 1;
-                letter-spacing: -2px;
-            }
+/* --- Estilos Dinâmicos (li.horario-item) --- */
 
-            .detailsHeader {
-                margin-bottom: 2rem;
-            }
+li.horario-item {
+    font-weight: bold;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    border: 1px solid transparent; /* Base para o hover/seleção */
+}
 
-            .detailsHeader h1 {
-                font-size: 2.25rem;
-                font-weight: 800;
-                color: var(--senai-blue);
-                margin-bottom: 0.5rem;
-            }
+/* VERDE: Horário Livre */
+li.horario-item.livre {
+    background-color: #e8f5e9; 
+    color: #2e7d32; 
+    cursor: pointer; 
+    border-color: #c8e6c9;
+}
+li.horario-item.livre:hover {
+    background-color: #c8e6c9; 
+}
 
-            .detailsHeader p {
-                font-size: 0.875rem;
-                color: #4b5563;
-                font-weight: 500;
-                margin-top: 0.25rem;
-            }
 
-            .highlight {
-                font-weight: 600;
-            }
+/* VERMELHO: Horário Ocupado */
+li.horario-item.ocupado {
+    background-color: #ffebee; 
+    color: #c62828; 
+    cursor: not-allowed; 
+    opacity: 0.7; /* Suaviza a cor */
+    border-color: #ffcdd2;
+}
+li.horario-item.ocupado:hover {
+    /* Não muda a cor no hover para ocupado */
+    background-color: #ffebee; 
+}
 
-            .count {
-                font-weight: 700;
-                color: var(--senai-blue);
-            }
+/* AZUL: Horário Selecionado */
+li.horario-item.livre.selecionado {
+    background-color: #1e88e5; /* Azul principal */
+    color: white; 
+    box-shadow: 0 2px 5px rgba(30, 136, 229, 0.4); 
+    border-color: #1565c0;
+    /* Impede que o hover mude a cor se já estiver selecionado */
+}
+li.horario-item.livre.selecionado:hover {
+    background-color: #1565c0; 
+}
 
-            .timeSlotContainer {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                margin-top: 1rem;
-                position: relative;
-            }
+/* --- Estilo do Botão --- */
+button {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, transform 0.1s;
+    display: block; 
+    margin: 20px auto 0 auto; 
+}
 
-            @media (min-width: 768px) {
-                .timeSlotContainer {
-                    grid-template-columns: repeat(3, minmax(0, 1fr));
-                }
-            }
-
-            .dashedDivider {
-                display: none;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                border-left: 1px dashed var(--border-color);
-                height: 100%;
-                pointer-events: none;
-            }
-            @media (min-width: 768px) {
-                .dashedDivider {
-                    display: block;
-                }
-                #divider-tarde { left: 33.333%; }
-                #divider-noite { left: 66.666%; }
-            }
-
-            .shiftColumn {
-                padding: 1rem 0;
-            }
-
-            .shiftColumn h2 {
-                font-size: 1.5rem;
-                font-weight: 700;
-                margin-bottom: 1.5rem;
-                color: var(--senai-blue);
-                text-align: center;
-            }
-            @media (min-width: 768px) {
-                .shiftColumn h2 {
-                    text-align: left;
-                }
-            }
-
-            .slot {
-                padding: 0.75rem 1rem;
-                border-radius: 0.5rem;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                font-weight: 500;
-                transition: all 0.15s ease-in-out;
-                margin-bottom: 0.75rem;
-                cursor: pointer;
-                user-select: none;
-                border: 1px solid #9ca3af; 
-            }
-
-            .statusIndicator {
-                width: 0.75rem;
-                height: 0.75rem;
-                border-radius: 50%;
-            }
-
-            .reserved {
-                background-color: var(--reserved-bg);
-                color: var(--reserved-text);
-                border: 1px solid var(--border-color);
-                cursor: not-allowed;
-                pointer-events: none;
-                opacity: 0.8;
-            }
-            .reserved .statusIndicator {
-                background-color: #fca5a5; 
-            }
-
-            .available {
-                background-color: #ffffff;
-                color: var(--dark-text);
-            }
-            .available .statusIndicator {
-                background-color: #4ade80; 
-            }
-            .available:hover {
-                background-color: #eff6ff; 
-                border-color: var(--senai-blue);
-            }
-
-            .selected {
-                background-color: var(--senai-blue);
-                color: white;
-                border: 1px solid var(--senai-blue);
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.15);
-                transform: translateY(-1px);
-                cursor: pointer;
-            }
-            .selected .statusIndicator {
-                background-color: #fcd34d; 
-            }
-
-            .reserveButtonContainer {
-                display: flex;
-                justify-content: center;
-                margin-top: 3rem;
-                margin-bottom: 1rem;
-            }
-
-            .reserveButton {
-                padding: 0.75rem 2.5rem;
-                background-color: var(--senai-blue);
-                color: white;
-                font-weight: 600;
-                border-radius: 0.5rem;
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-                transition: all 0.2s ease;
-                border: none;
-                cursor: pointer;
-            }
-
-            .reserveButton:not(:disabled):hover {
-                background-color: #003a6e; 
-                box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
-            }
-
-            .reserveButton:disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
-            }
-
-            .modal {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(17, 24, 39, 0.75);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 50;
-            }
-
-            .modalContentBox {
-                background-color: white;
-                padding: 1.5rem;
-                border-radius: 0.75rem;
-                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-                max-width: 24rem;
-                width: 100%;
-                text-align: center;
-            }
-
-            .modalTitle {
-                font-size: 1.25rem;
-                font-weight: 700;
-                color: var(--senai-blue);
-                margin-bottom: 0.75rem;
-            }
-
-            .modalContent {
-                color: #4b5563;
-                margin-bottom: 1.5rem;
-            }
-
-            .modalCloseButton {
-                padding: 0.5rem 1.5rem;
-                background-color: var(--senai-blue);
-                color: white;
-                font-weight: 600;
-                border-radius: 0.5rem;
-                border: none;
-                cursor: pointer;
-            }
-
-            .modalCloseButton:hover {
-                background-color: #003a6e;
-            }
-            
+button:hover {
+    background-color: #1565c0;
+    transform: translateY(-1px);
+}
